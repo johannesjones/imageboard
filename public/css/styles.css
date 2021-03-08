@@ -1,0 +1,176 @@
+* {
+    font-family: 'Courier New', Courier, monospace;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: aliceblue;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 120px auto 50px;
+    padding: 20px 20px 0 20px;
+    font-family: 'Courier New', Courier, monospace;
+    /* overflow: auto; */
+}
+
+#inputForm {
+    display: flex;
+    justify-content: center;
+}
+
+#inputForm input {
+    margin-right: 10px;
+    height: 25px;
+}
+
+#inputForm button {
+    margin-left: 10px;
+    width: 70px;
+    border-radius: 30px;
+}
+
+#cardsBox {
+    display: flex;
+    flex-flow: wrap;
+}
+
+#cards {
+    height: 250px;
+    background-color: white;
+    border: 1px solid rgb(126, 119, 119);
+    border-radius: 10px;
+    margin: 20px;
+    padding: 7px;
+}
+
+#imageBox {
+    width: 270px;
+    height: 180px;
+    justify-content: center;
+    align-items: center;
+}
+
+#moreBtn {
+    display: flex;
+    justify-content: center;
+}
+
+#moreBtn button {
+    width: 70px;
+    border-radius: 70px;
+} 
+
+#imageBox img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.inputfile {
+	width: 0.1px;
+    height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile + label {
+    font-size: 1em;
+    font-weight: 600;
+    color: white;
+    background-color: rgb(17, 17, 17);
+    display: inline-block;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: green;
+}
+
+.inputfile + label {
+	cursor: pointer;
+}
+
+.inputfile:focus + label {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+
+.overlay {
+    background-color: rgba(255, 166, 0, 0.863);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 75%;
+    height: 100%;
+    top: 5%;
+    left: 11rem;
+    bottom: 5%;
+    overflow: auto;
+}
+
+#image {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+#footnote {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#x {
+    position: absolute;
+    text-align: right;
+    font-size: 30px;
+    top: 20px;
+    right: 20px;
+    margin: 30px;
+}
+
+.overlay img {
+    top: 0;
+    width: 47vh;
+    height: 38vh;
+    object-fit: contain;
+}
+
+.overlay h1 {
+    text-align: center;
+}
+
+.overlay h3 {
+    text-align: right;
+}
+
+#postComment input {
+    margin-right: 10px;
+    height: 25px;
+}
+
+#postComment button {
+    margin-left: 10px;
+    width: 70px;
+    border-radius: 30px;
+}
+
+/* #showComments {
+    display: flex;
+    justify-content: flex-end;
+} */
+
+#shownComment {
+    display: flex;
+    justify-content: flex-start;
+}
+
+#user {
+    display: flex;
+    justify-content: flex-end;
+}

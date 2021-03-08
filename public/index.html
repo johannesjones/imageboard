@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <!-- for view instance -->
+    <div id="main">
+
+        <strong><h1>Imagine (by Karim MANRA)</h1><p>and me</p></strong>
+
+        <form id="inputForm">
+            <input v-model='title' type="text" name="title" placeholder="title" autocomplete='off'>
+            <input v-model='description' type="text" name="description" placeholder="description" autocomplete='off'>
+            <input v-model='username' type="text" name="username" placeholder="username" autocomplete='off'>
+            <input @change='fileSelect' type="file" name="file" id="file" class="inputfile" accept="image/*">
+            <label for="file">Choose a file</label>
+            <button @click.prevent='postContent'>Post</button>
+        </form>
+
+        <div id="cardsBox">
+            <div id="cards" v-for='each in images' :key='each.id'>
+                <a :href="'#' + each.id"><div id="imageBox">
+
+                    <img :src=each.url>
+                    
+                    <p id="title">{{each.title}}</p>
+                    
+                </div></a>   
+            </div>
+        </div>
+
+        <div id="moreBtn">
+            <button  v-if='more' @click='showMore'>More</button>
+        </div>
+        
+
+        <modal 
+            v-if='selectedImage'
+            :imageid='selectedImage'
+            @close='closeModal'
+        ></modal>
+
+    </div>
+
+    <script type="text/x-template" id="modal">
+
+        <div class='overlay'>
+            <p id='x' @click='closeModal'>X</p>
+            <h1> {{ title }} </h1>
+           
+            <div id='image'>
+                 <h3> {{ description }} </h3>
+                <img :src='url' alt="">
+                <div id='footnote'>
+                    
+                    
+                    <comment-comp :imageid="imageid"></comment-comp>
+                    <p>image uploaded by <strong>{{ username }}</strong> on {{ date }}</p>
+                </div>
+            </div>
+        </div>
+
+    </script>
+
+    <script type="text/x-template" id='img-comment'>
+        <div id='comments'>
+            <div id='postComment'>
+
+                <form>
+
+                    <input v-model='comment' type="text" name='comment' placeholder='Your comment here' autocomplete='off'>
+                    <input v-model='username' type="text" name='username' placeholder='Your username' autocomplete='off'>
+                    <button @click.prevent='submitComment' id='postComment' >Comment</button>
+
+                </form>
+
+            </div>
+            <div id='showComments'>
+                
+                <div id='shownComment' v-for='each in comments'>
+                    <div id='text'>
+                        <h3>"{{each.comment}}"</h3>
+                    </div>
+                    <div id='user'>
+                        <p><br>  written by <strong>{{each.username}}</strong></p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    
+    
+    
+    </script>
+
+    <script src="/js/vue.js"></script>
+    <script src="/js/axios.min.js"></script>
+    <script src="/js/script.js"></script>
+</body>
+</html>
